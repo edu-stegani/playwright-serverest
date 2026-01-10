@@ -1,0 +1,30 @@
+{
+    "create_user": {
+        "nome": "eduardo",
+        "email": "edu@teste.com",
+        "password": "teste",
+        "administrador": "false"
+    },
+    "create_adm": {
+        "nome": "eduardo",
+        "email": "edu@adm.com",
+        "password": "teste",
+        "administrador": "true"
+    },
+    "user_invalid": {
+        "email": "usuario@invalido.com",
+        "password": "teste"
+    },
+    "password_null": {
+        "email": "usuario@invalido.com",
+        "password": ""
+    },
+    "email_null": {
+        "email": "",
+        "password": "teste"
+    },
+    "email_incorrect": {
+        "email": "usuario#invalido.com",
+        "password": "teste"
+    }
+}
