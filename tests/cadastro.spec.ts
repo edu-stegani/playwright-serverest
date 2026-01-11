@@ -1,12 +1,15 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import data from './fixtures/data.json';
 import { getUserByEmail, deleteUserById } from './support/helpers';
 import { CadastroPage } from './support/pages/cadastroPage';
+import { BasePage } from './support/pages/basePage';
 
+let basePage: BasePage;
 let cadastroPage: CadastroPage;
 
 test.beforeEach(async ({ page }) => {
     cadastroPage = new CadastroPage(page);
+    basePage = new BasePage(page);
 })
 
 test.describe('cadastro de usuário comum', () => {
@@ -28,9 +31,9 @@ test.describe('cadastro de usuário comum', () => {
             data.create_user.administrador
         );
 
-        await cadastroPage.clickButtonByName('Cadastrar');
+        await basePage.clickButtonByName('Cadastrar');
 
-        await cadastroPage.checkAlertMessage('Cadastro realizado com sucesso');
+        await basePage.checkAlertMessage('Cadastro realizado com sucesso');
     })
 
     test('cadastro de usuário com nome nulo', async () => {
@@ -41,8 +44,8 @@ test.describe('cadastro de usuário comum', () => {
             data.nome_null.password,
             data.nome_null.administrador
         );
-        await cadastroPage.clickButtonByName('Cadastrar');
-        await cadastroPage.checkAlertMessage('Nome é obrigatório');
+        await basePage.clickButtonByName('Cadastrar');
+        await basePage.checkAlertMessage('Nome é obrigatório');
     })
 
     test('cadastro de usuário com email nulo', async () => {
@@ -53,8 +56,8 @@ test.describe('cadastro de usuário comum', () => {
             data.email_null.password,
             data.email_null.administrador
         );
-        await cadastroPage.clickButtonByName('Cadastrar');
-        await cadastroPage.checkAlertMessage('Email é obrigatório');
+        await basePage.clickButtonByName('Cadastrar');
+        await basePage.checkAlertMessage('Email é obrigatório');
     })
 
     test('cadastro de usuário com password nulo', async () => {
@@ -65,8 +68,8 @@ test.describe('cadastro de usuário comum', () => {
             data.password_null.password,
             data.password_null.administrador
         );
-        await cadastroPage.clickButtonByName('Cadastrar');
-        await cadastroPage.checkAlertMessage('Password é obrigatório');
+        await basePage.clickButtonByName('Cadastrar');
+        await basePage.checkAlertMessage('Password é obrigatório');
     })
 
     test('cadastro de usuário com email inválido', async () => {
@@ -77,8 +80,8 @@ test.describe('cadastro de usuário comum', () => {
             data.email_incorrect.password,
             data.email_incorrect.administrador
         );
-        await cadastroPage.clickButtonByName('Cadastrar');
-        await cadastroPage.checkAlertBrowse();
+        await basePage.clickButtonByName('Cadastrar');
+        await basePage.checkAlertBrowse();
     })
 })
 
@@ -99,8 +102,8 @@ test.describe('cadastro de usuário administrador', () => {
             data.create_adm.password,
             data.create_adm.administrador
         );
-        await cadastroPage.clickButtonByName('Cadastrar');
-        await cadastroPage.checkAlertMessage('Cadastro realizado com sucesso');
+        await basePage.clickButtonByName('Cadastrar');
+        await basePage.checkAlertMessage('Cadastro realizado com sucesso');
     })
 })
 

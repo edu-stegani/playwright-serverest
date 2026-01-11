@@ -2,11 +2,14 @@ import { test, expect } from '@playwright/test';
 import data from './fixtures/data.json';
 import { getUserByEmail, deleteUserById, createUser } from './support/helpers';
 import { LoginPage } from './support/pages/loginPage';
+import { BasePage } from './support/pages/basePage';
 
 let loginPage: LoginPage;
+let basePage: BasePage;
 
 test.beforeEach(({ page }) => {
   loginPage = new LoginPage(page);
+  basePage = new BasePage(page);
 });
 
 test.describe('login com user comum', () => {
@@ -28,7 +31,7 @@ test.describe('login com user comum', () => {
     // preenchendo formulario login
     await loginPage.fillForm(data.create_user.email, data.create_user.password);
     // clicar botão Entrar
-    await loginPage.clickButtonByName('Entrar');
+    await basePage.clickButtonByName('Entrar');
     // checkpoint da dashboard 
     await loginPage.checkDashboard();
 
@@ -38,8 +41,8 @@ test.describe('login com user comum', () => {
 
     await loginPage.go();
     await loginPage.fillForm(data.user_invalid.email, data.user_invalid.password);
-    await loginPage.clickButtonByName('Entrar');
-    await loginPage.checkAlertMessage('Email e/ou senha inválidos');
+    await basePage.clickButtonByName('Entrar');
+    await basePage.checkAlertMessage('Email e/ou senha inválidos');
 
   });
 
@@ -47,8 +50,8 @@ test.describe('login com user comum', () => {
 
     await loginPage.go();
     await loginPage.fillForm(data.password_null.email, data.password_null.password);
-    await loginPage.clickButtonByName('Entrar');
-    await loginPage.checkAlertMessage('Password é obrigatório');
+    await basePage.clickButtonByName('Entrar');
+    await basePage.checkAlertMessage('Password é obrigatório');
 
   });
 
@@ -56,17 +59,16 @@ test.describe('login com user comum', () => {
 
     await loginPage.go();
     await loginPage.fillForm(data.email_null.email, data.email_null.password);
-    await loginPage.clickButtonByName('Entrar');
-    await loginPage.checkAlertMessage('Email é obrigatório');
-
+    await basePage.clickButtonByName('Entrar');
+    await basePage.checkAlertMessage('Email é obrigatório');
   });
 
   test('login com email sem @', async () => {
 
     await loginPage.go();
     await loginPage.fillForm(data.email_incorrect.email, data.email_incorrect.password);
-    await loginPage.clickButtonByName('Entrar');
-    await loginPage.checkAlertBrowse();
+    await basePage.clickButtonByName('Entrar');
+    await basePage.checkAlertBrowse();
 
   });
 })
@@ -97,7 +99,7 @@ test.describe('login com user adm', () => {
     // preenchendo formulario login
     await loginPage.fillForm(data.create_adm.email, data.create_adm.password);
     // clicar botão Entrar
-    await loginPage.clickButtonByName('Entrar');
+    await basePage.clickButtonByName('Entrar');
     // checkpoint da dashboard 
     await loginPage.checkDashboard();
   })
