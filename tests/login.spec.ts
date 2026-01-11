@@ -12,20 +12,16 @@ test.beforeEach(({ page }) => {
 test.describe('login com user comum', () => {
   test('login de usuario com sucesso', async ({ request }) => {
 
-    // requisição GET passando o email para verificar se já existe
-    const responseBody = await getUserByEmail(request, data.create_user.email);
+    
+    const responseBody = await getUserByEmail(request, data.create_user.email);   // requisição GET passando o email para verificar se já existe
 
-    // requisição DELETE caso o usuário já exista
-    if (responseBody.quantidade === 0) {
-      console.log('usuário nao existe, pode seguir para cadastro');
-    } else {
-      const id = responseBody.usuarios[0]._id;
-      console.log('removendo o usuário com id: ', id);
-      await deleteUserById(request, id);
+    if (responseBody.quantidade === 1) {
+        const id = responseBody.usuarios[0]._id;
+        console.log('deletando o usuário com id: ', id);
+        await deleteUserById(request, id);    // requisição DELETE para usuário existente  
     }
 
-    // requisição  POST para cadastrar o usuário
-    await createUser(request, data.create_user);
+    await createUser(request, data.create_user);    // requisição  POST para cadastrar o usuário
 
     //navegando para a page passando o endpoint
     await loginPage.go();

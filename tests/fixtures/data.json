@@ -16,15 +16,27 @@
         "password": "teste"
     },
     "password_null": {
-        "email": "usuario@invalido.com",
-        "password": ""
+        "nome": "Julio",
+        "email": "julio@nopass.com",
+        "password": "",
+        "administrador": "false"
+    },
+    "nome_null": {
+        "nome": "",
+        "email": "namenull@user.com",
+        "password": "teste",
+        "administrador": "false"
     },
     "email_null": {
+        "nome": "Maria",
         "email": "",
-        "password": "teste"
+        "password": "teste",
+        "administrador": "false"
     },
     "email_incorrect": {
+        "nome": "Marcio",
         "email": "usuario#invalido.com",
-        "password": "teste"
+        "password": "teste",
+        "administrador": "false"
     }
 }
