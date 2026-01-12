@@ -1,0 +1,14 @@
+{
+    "product1": {
+        "nome": "PlayStation 5",
+        "preco": 3990,
+        "descricao": "Eletronicos",
+        "quantidade": 11
+    },
+    "product2": {
+        "nome": "iPhone 17 Pro",
+        "preco": 9990,
+        "descricao": "Smartphones",
+        "quantidade": 9
+    }
+}
