@@ -3,19 +3,21 @@ Projeto simples testando as principais funcionalidade do Serverest (login, cadas
 
 Convido você a baixar o projeto e testar em sua máquina. Vamos lá!
 
-### 📌Tecnologias Utilizadas:
+### Tecnologias Utilizadas:
 - Node v24.12.0
 - Playwright v1.57.0
 - Typescript
 - Npm v11.7.0
 - Git v2.51.0
 
-### ⚙️Configuração do Ambiente de Testes🛠️
+### Configuração do Ambiente de Testes
 - Node.js [Download Node](https://nodejs.org/pt-br/download)
 
 * Git [Download Git](https://git-scm.com/install/)
 
-- No terminal do projeto, executar: `npm install` para instalar dependências.
+- No terminal, dentro da pasta onde armazena projetos: `git clone https://github.com/edu-stegani/playwright-serverest.git`
+
+* No terminal do projeto, executar: `npm install` para instalar dependências.
 
 
 ### ⏯️Como Executar Testes:
@@ -27,9 +29,9 @@ Convido você a baixar o projeto e testar em sua máquina. Vamos lá!
 
     
 
-###  Autor🙎🏻‍♂️💻
+###  Autor
 - Eduardo Stegani
-- 💻 QA Engineer | Automação de Testes
+- QA Engineer | Automação de Testes
 Meu perfil no linkedin: [Eduardo Stegani](https://www.linkedin.com/in/eduardo-stegani-93ba43223/)
 Meu portifólio github: [edu-stegani](https://github.com/edu-stegani) 
 ![capa](image/capa.jpeg)
