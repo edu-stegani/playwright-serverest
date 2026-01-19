@@ -19,6 +19,8 @@ Convido você a baixar o projeto e testar em sua máquina. Vamos lá!
 
 * No terminal do projeto, executar: `npm install` para instalar dependências.
 
+- No terminal, executar `npx playwright install` para instalar o playwright.
+
 
 ### ⏯️Como Executar Testes:
 * Executar teste regressivo: `npx playwright test`
